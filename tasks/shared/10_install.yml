@@ -10,7 +10,7 @@
 
 - name: Install MongoDB
   dnf:
-    name: "{{ graylog_packages_mongodb }}" 
+    name: "{{ mongodb_packages }}" 
     state: installed
 
 - name: Enable and start mongod
