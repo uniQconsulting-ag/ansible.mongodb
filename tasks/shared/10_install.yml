@@ -1,0 +1,21 @@
+---
+  
+- name: Configure stable MongoDB repo
+  copy:
+    src: mongodb-org.repo
+    dest: /etc/yum.repos.d/mongodb-org.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install MongoDB
+  dnf:
+    name: "{{ graylog_packages_mongodb }}" 
+    state: installed
+
+- name: Enable and start mongod
+  service:
+    name: mongod
+    state: started
+    enabled: yes
+...
